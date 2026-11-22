@@ -1,0 +1,9 @@
+field,dtype,meaning,missing_pct
+Invoice,string,Invoice number; values beginning with C indicate cancellations,0.0
+StockCode,string,Product or service stock code,0.0
+Description,object,Product description,0.4105414143723223
+Quantity,int64,Units in the transaction line,0.0
+InvoiceDate,object,Transaction timestamp,0.0
+Price,float64,Unit price in GBP,0.0
+Customer ID,float64,Pseudonymous customer identifier,22.766872999172733
+Country,object,Customer country,0.0

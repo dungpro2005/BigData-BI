@@ -1,0 +1,13 @@
+.PHONY: install test pipeline dashboard
+
+install:
+	python3 -m pip install -r requirements.txt
+
+test:
+	python3 -m pytest -q
+
+pipeline:
+	python3 -m src.pipeline
+
+dashboard:
+	streamlit run dashboard/app.py

@@ -1,0 +1,10 @@
+{
+  "input_file": "/home/dung/Documents/BigData & BI/Kaggle/online_retail_II.csv",
+  "raw_rows": 1067371,
+  "raw_columns": 8,
+  "raw_date_min": "2009-12-01 07:45:00",
+  "raw_date_max": "2011-12-09 12:50:00",
+  "clean_rows": 776589,
+  "clean_customers": 5852,
+  "clean_invoices": 36604
+}

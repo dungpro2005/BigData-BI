@@ -1,0 +1,915 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,vietnamese]{babel}
+\usepackage{vntex}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{a4wide}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{amsmath,amssymb,amsthm,amscd}
+\usepackage{array,tabularx,multirow,longtable,booktabs,hhline,diagbox,colortbl}
+\usepackage{graphicx,rotating,wrapfig,subcaption}
+\usepackage{tikz}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage[normalem]{ulem}
+\usepackage{soul}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{alltt}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{tabto}
+\usepackage{ragged2e}
+\usepackage{url}
+\usepackage[unicode]{hyperref}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+  urlcolor=blue,
+  linkcolor=black,
+  citecolor=black,
+  colorlinks=true
+}
+
+\def\layout{
+     \geometry{
+         a4paper,
+         total{160mm, 240mm},
+         left=25mm,
+         top=30mm,
+     }
+}
+
+\definecolor{background}{rgb}{0.95,0.95,0.92}
+
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    backgroundcolor = \color{background},
+    stringstyle=\color{teal},
+    otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{teal},
+    breaklines = true,
+    showstringspaces = false
+}
+
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    basicstyle=\small\ttfamily,
+    backgroundcolor=\color{background},
+    stringstyle=\color{teal},
+    keywordstyle=\color{blue},
+    commentstyle=\color{teal},
+    breaklines=true,
+    showstringspaces=false,
+    columns=fullflexible,
+    keepspaces=true
+}
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} %clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{../logo_hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily \textcolor{black}{Trường Đại học Bách Khoa - Đại học Quốc gia TP.HCM}}\\
+		\textbf{\bf \ttfamily \textcolor{black}{Khoa Khoa học \& Kỹ thuật Máy tính}}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+\newcolumntype{M}[1]{>{\RaggedRight\arraybackslash}m{#1}}
+
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH \\
+TRƯỜNG ĐẠI HỌC BÁCH KHOA \\
+KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH \\
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=4cm]{../logo_hcmut.png}
+\end{center}
+\end{figure}
+
+\begin{center}
+    \arrayrulecolor{black}
+    \begin{tabular}{c}
+        \multicolumn{1}{c}{\textbf{{\huge \color{black} BÁO CÁO BÀI TẬP LỚN  }}}\\
+        ~~ \\
+        \hline
+        \\
+
+        \makebox[\linewidth][c]{\textcolor{black}{\textbf{\Large PHÂN TÍCH DỮ LIỆU LỚN VÀ TRÍ TUỆ KINH DOANH (CO4033)}}}\\\\
+        \makebox[\linewidth][c]{\textcolor{black}{\textbf{\large Học kì 261 / Năm học: 2026 - 2027}}}
+        ~~\\\\
+        \hline
+        \\
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \fontsize{16pt}{20pt}\selectfont  
+    \textbf{\textsl{\textcolor{black}{\uline{ĐỀ TÀI:}}}} \hspace{3mm} \textbf{\textrm{Phân khúc khách hàng theo hành vi mua sắm}}
+\end{center}
+\begin{center}
+\textbf{\large GVHD: Bùi Tiến Đức}
+\end{center}
+
+
+\noindent \textbf{Danh sách thành viên nhóm:}
+
+\definecolor{myblack}{RGB}{0,0,0}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\renewcommand{\arraystretch}{2}
+\begin{table}[H]
+\centering
+\arrayrulecolor{black}
+\begin{tabular}{| C{0.75cm} | C{5cm} | C{2.5cm} | C{3cm} |} 
+\hline
+\textcolor{myblack}{\textbf{STT}} & \textcolor{myblack}{\textbf{Họ và tên}} & \textcolor{myblack}{\textbf{MSSV}} & \textcolor{myblack}{\textbf{Tỉ lệ hoàn thành}}\\
+\hline
+\textcolor{myblack}{1} & \textcolor{myblack}{Phạm Bùi Trí Dũng} & \textcolor{myblack}{2310569} & \textcolor{myblack}{ 100\%}\\ \hline
+\end{tabular}
+\end{table}
+
+\vfill
+\begin{center}
+\textbf{Github:} \url{https://github.com/dungpro2005/BigData-BI.git}
+\end{center}
+
+\end{titlepage}
+
+\newpage
+
+\renewcommand{\contentsname}{MỤC LỤC}
+\setcounter{tocdepth}{2}
+\tableofcontents
+\thispagestyle{fancy}
+
+\clearpage
+
+
+
+\section*{1. GIỚI THIỆU}
+\addcontentsline{toc}{section}{1. GIỚI THIỆU}
+
+\subsection*{1.1. Bối cảnh}
+\addcontentsline{toc}{subsection}{1.1. Bối cảnh}
+
+Trong bán lẻ, một doanh nghiệp có thể phục vụ đồng thời khách hàng mới, khách thường xuyên, khách có chi tiêu cao và khách đã lâu không quay lại. Nếu chỉ dùng doanh thu tổng hợp, nhà quản lý khó xác định nên ưu tiên nguồn lực chăm sóc cho nhóm nào. Phân khúc dựa trên hành vi giao dịch giúp chuyển dữ liệu hóa đơn thành các nhóm có thể diễn giải, từ đó hỗ trợ thiết kế thông điệp và chương trình chăm sóc khác nhau.
+
+Đề tài sử dụng RFM vì ba thành phần có thể tính trực tiếp từ lịch sử giao dịch: độ gần đây của lần mua, số lần mua và tổng giá trị mua. K-Means được dùng để tìm nhóm dựa trên khoảng cách trong không gian đặc trưng; baseline theo ngưỡng/quintile cung cấp cách phân khúc đơn giản, dễ giải thích để làm mốc so sánh.
+
+\subsection*{1.2. Vấn đề cần giải quyết}
+\addcontentsline{toc}{subsection}{1.2. Vấn đề cần giải quyết}
+
+Đầu vào gồm các dòng giao dịch bán lẻ, không có nhãn khách hàng như “VIP” hay “có nguy cơ rời bỏ”. Cần xử lý dữ liệu giao dịch không hợp lệ và hóa đơn hủy, xác định tập khách có đủ thông tin, xây dựng đặc trưng ở cấp khách hàng, so sánh hai cách phân khúc trên cùng tập dữ liệu và tạo đầu ra trực quan để người phụ trách CRM có thể xem xét.
+
+Bài toán này là \textbf{phân tích mô tả và phân cụm không giám sát}, không phải mô hình dự báo churn, doanh thu tương lai hay phản hồi marketing. Nhãn “At-risk/Lost” là cách gọi gợi ý dựa trên Recency/Frequency quan sát được, không phải xác nhận khách đã rời bỏ.
+
+\subsection*{1.3. Mục tiêu}
+\addcontentsline{toc}{subsection}{1.3. Mục tiêu}
+
+\begin{enumerate}
+\item Khảo sát nguồn, schema, phạm vi thời gian và chất lượng dữ liệu.
+\item Xây dựng pipeline có thể chạy lại: nạp dữ liệu, làm sạch, tạo RFM, chuẩn hóa, phân nhóm, tính KPI và xuất kết quả.
+\item So sánh baseline quintile RFM với K-Means theo Silhouette, Davies--Bouldin, độ ổn định ARI, số nhóm, thời gian và khả năng diễn giải.
+\item Trình bày kết quả trên dashboard Streamlit với bộ lọc và biểu đồ phù hợp.
+\item Đề xuất hành động CRM có nêu rõ giả định, chi phí, rủi ro và cách kiểm chứng.
+\end{enumerate}
+
+\subsection*{1.4. Câu hỏi phân tích}
+\addcontentsline{toc}{subsection}{1.4. Câu hỏi phân tích}
+
+\textbf{Q1.} Các nhóm khách hàng khác nhau như thế nào về Recency, Frequency, Monetary, quy mô khách và tỷ trọng doanh thu?
+
+\textbf{Q2.} Trong số khách hàng có ít nhất một giao dịch trước ngày 01/06/2011, tỷ lệ nào tiếp tục có giao dịch từ ngày 01/06/2011 đến hết dữ liệu?
+
+Q1 được trả lời bằng bảng RFM và tỷ trọng theo phân khúc. Q2 được trả lời bằng phép giao giữa tập khách có giao dịch ở giai đoạn trước và tập khách có giao dịch ở giai đoạn sau. Mốc thời gian là quy ước phân tích của đề tài, không phải bằng chứng về tác động của chiến dịch.
+
+\subsection*{1.5. Người dùng dự kiến}
+\addcontentsline{toc}{subsection}{1.5. Người dùng dự kiến}
+
+\begin{itemize}
+\item \textbf{Quản lý CRM/marketing:} xem quy mô và giá trị từng phân khúc, cân nhắc ưu tiên chăm sóc.
+\item \textbf{Chuyên viên marketing:} lựa chọn nhóm thử nghiệm chiến dịch và theo dõi phản hồi.
+\item \textbf{Nhà phân tích dữ liệu:} chạy lại pipeline, đối chiếu chất lượng dữ liệu và giải thích chỉ số.
+\end{itemize}
+
+Người dùng cuối chính cần được nhóm xác nhận với giảng viên hoặc đơn vị giả định trước khi chốt báo cáo.
+
+\subsection*{1.6. Phạm vi}
+\addcontentsline{toc}{subsection}{1.6. Phạm vi}
+
+Phân tích tập trung vào giao dịch mua hợp lệ có Customer ID, với số lượng và giá dương. Hóa đơn hủy được lưu riêng, không dùng trong RFM. Doanh thu tính theo Quantity \ensuremath{\times} Price và được xem là doanh thu dòng hàng quy đổi GBP, không phải lợi nhuận. Các giá trị dương lớn được giữ lại; log1p được áp dụng khi tạo đặc trưng, không winsorize và không loại khách có giá trị lớn.
+
+
+\section*{2. DỮ LIỆU VÀ QUẢN LÝ DỮ LIỆU}
+\addcontentsline{toc}{section}{2. DỮ LIỆU VÀ QUẢN LÝ DỮ LIỆU}
+
+\subsection*{2.1. Nguồn dữ liệu}
+\addcontentsline{toc}{subsection}{2.1. Nguồn dữ liệu}
+
+Dữ liệu đầu vào trong workspace là \texttt{Kaggle/online\_retail\_II.csv}. Nguồn tham khảo:
+
+\begin{enumerate}
+\item Kaggle, \textit{Online Retail II}: \url{https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci}
+\item UCI Machine Learning Repository, \textit{Online Retail II}: \url{https://archive.ics.uci.edu/dataset/502/online+retail+ii}
+\end{enumerate}
+
+UCI ghi nhận bộ dữ liệu theo giấy phép CC BY 4.0; khi tái phân phối cần ghi attribution phù hợp. Nhóm cần kiểm tra chính sách của bản tải từ Kaggle trước khi đưa dữ liệu vào repo hoặc gửi kèm báo cáo. Tệp CSV nguồn không được đưa vào repo mã nguồn mặc định.
+
+\subsection*{2.2. Quy mô và phạm vi}
+\addcontentsline{toc}{subsection}{2.2. Quy mô và phạm vi}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Thuộc tính} & \textbf{Kết quả} \\
+\hline
+Số dòng ban đầu & 1.067.371 \\
+\hline
+Số cột & 8 \\
+\hline
+Thời điểm nhỏ nhất & 01/12/2009 07:45 \\
+\hline
+Thời điểm lớn nhất & 09/12/2011 12:50 \\
+\hline
+Dòng sau làm sạch để phân tích & 776.589 \\
+\hline
+Khách hàng sau làm sạch & 5.852 \\
+\hline
+Hóa đơn sau làm sạch & 36.604 \\
+\hline
+Hóa đơn hủy được tách riêng & 18.390 \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+Mặc dù có hơn một triệu dòng, thử nghiệm được thực hiện trên một máy và chưa chứng minh khả năng mở rộng phân tán. Vì vậy, báo cáo không kết luận đây là Big Data theo nghĩa hệ thống phân tán; đây là bài toán phân tích dữ liệu bán lẻ có quy mô đủ lớn để minh họa pipeline và BI trên máy đơn.
+
+\subsection*{2.3. Từ điển dữ liệu}
+\addcontentsline{toc}{subsection}{2.3. Từ điển dữ liệu}
+
+Tỷ lệ thiếu được tính trên dữ liệu nguồn trước khi làm sạch.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Trường} & \textbf{Kiểu dữ liệu khi nạp} & \textbf{Ý nghĩa} & \textbf{Thiếu (\%)} \\
+\hline
+Invoice & string & Mã hóa đơn; mã bắt đầu bằng C biểu thị hóa đơn hủy & 0,00 \\
+\hline
+StockCode & string & Mã hàng hoặc mã dịch vụ & 0,00 \\
+\hline
+Description & object/string & Mô tả mặt hàng & 0,41 \\
+\hline
+Quantity & int64 & Số lượng trên dòng hóa đơn & 0,00 \\
+\hline
+InvoiceDate & object/string & Thời điểm giao dịch; chuyển sang datetime trong pipeline & 0,00 \\
+\hline
+Price & float64 & Đơn giá, GBP & 0,00 \\
+\hline
+Customer ID & float64 & Mã định danh khách hàng giả danh; thiếu được lưu dưới dạng NaN & 22,77 \\
+\hline
+Country & object/string & Quốc gia của khách hàng & 0,00 \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+Customer ID là mã định danh giả danh chứ không phải dữ liệu nhận dạng trực tiếp. Tuy nhiên, thiếu mã khách hàng khiến các dòng này không thể gắn vào hồ sơ RFM nên bị loại khỏi phân tích khách hàng. Description thiếu không được dùng làm khóa phân cụm; dòng đó vẫn có thể được giữ nếu các trường điều kiện khác hợp lệ.
+
+\subsection*{2.4. Chất lượng và làm sạch}
+\addcontentsline{toc}{subsection}{2.4. Chất lượng và làm sạch}
+
+Các quy tắc được áp dụng tuần tự. “Dòng bị ảnh hưởng” dưới đây là số dòng rời khỏi tập giao dịch đang dùng sau từng bước. Hóa đơn hủy được lưu riêng, không được xem là giao dịch mua hợp lệ.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Giai đoạn} & \textbf{Dòng còn lại} & \textbf{Dòng bị loại khỏi tập hoạt động ở bước này} & \textbf{Thiếu (\%)} & \textbf{Trùng hoàn toàn (\%)} \\
+\hline
+Ban đầu & 1.067.371 & 0 & 2,90 & 3,22 \\
+\hline
+Loại thiếu Customer ID & 824.364 & 243.007 & 0,00 & 3,21 \\
+\hline
+Loại trùng hoàn toàn & 797.885 & 26.479 & 0,00 & 0,00 \\
+\hline
+Chuyển ngày và loại ngày không hợp lệ & 797.885 & 0 & 0,00 & 0,00 \\
+\hline
+Tách hóa đơn hủy & 779.495 & 18.390 & 0,00 & 0,00 \\
+\hline
+Loại Quantity \ensuremath{\leq} 0 hoặc Price \ensuremath{\leq} 0 & 779.425 & 70 & 0,00 & 0,00 \\
+\hline
+Loại stock code dịch vụ/phí & 776.589 & 2.836 & 0,00 & 0,00 \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+Tổng dòng rời tập hoạt động là 290.782, bằng chênh lệch giữa số dòng ban đầu và số dòng cuối. Tỷ lệ thiếu/trùng tính theo số ô thiếu hoặc số dòng trùng trên bảng ở mỗi thời điểm, không phải tỷ lệ khách hàng. “Trùng hoàn toàn” được xác định trên toàn bộ các cột.
+
+Các quyết định làm sạch:
+
+\begin{enumerate}
+\item \textbf{Thiếu Customer ID:} loại khỏi RFM vì không thể gán giao dịch cho khách. Đây là bước ảnh hưởng nhiều nhất, 243.007 dòng (22,77\% dữ liệu nguồn).
+\item \textbf{Trùng hoàn toàn:} xóa bản ghi trùng nhằm tránh tính lặp doanh thu và tần suất.
+\item \textbf{InvoiceDate:} chuyển sang datetime; dữ liệu mẫu thực tế không phát sinh ngày không hợp lệ sau chuyển đổi.
+\item \textbf{Hóa đơn hủy:} nhận diện mã Invoice bắt đầu bằng C và tách 18.390 dòng vào \texttt{data/processed/cancellations.csv}.
+\item \textbf{Số lượng/giá:} loại các dòng có Quantity hoặc Price không dương. Dữ liệu âm thường có thể là điều chỉnh/hoàn trả; không được diễn giải thành giao dịch mua trong chỉ số chính.
+\item \textbf{StockCode phi sản phẩm:} loại nhóm mã được nhận diện trong mã nguồn như postage, bank charges, adjustment, test và các mã dịch vụ đã liệt kê. Bộ lọc dựa trên danh sách/mẫu mã, do đó có thể chưa bao phủ mọi mã phi sản phẩm.
+\item \textbf{Ngoại lệ:} giữ khách hàng chi tiêu cao và giá trị dương lớn. Áp dụng log1p khi biến đổi RFM để giảm lệch phải; không winsorize.
+\item \textbf{Doanh thu dòng hàng:} tạo \texttt{Revenue = Quantity \ensuremath{\times} Price}; đơn vị tiền tệ là GBP theo mô tả dữ liệu.
+\end{enumerate}
+
+Kết quả chất lượng được lưu ở \texttt{reports/quality\_before\_after.csv}; từ điển dữ liệu ở \texttt{reports/data\_dictionary.csv}.
+
+
+\section*{3. KIẾN TRÚC VÀ QUY TRÌNH THỰC HIỆN}
+\addcontentsline{toc}{section}{3. KIẾN TRÚC VÀ QUY TRÌNH THỰC HIỆN}
+
+\subsection*{3.1. Kiến trúc pipeline}
+\addcontentsline{toc}{subsection}{3.1. Kiến trúc pipeline}
+
+\begin{verbatim}
+Online Retail II CSV
+        |
+        v
+Nạp dữ liệu và kiểm tra schema
+        |
+        v
+Làm sạch: thiếu ID / trùng / ngày / hóa đơn hủy /
+Quantity-Price / mã dịch vụ
+        |----------------------> Lưu hóa đơn hủy riêng
+        v
+Giao dịch hợp lệ + Revenue
+        |
+        v
+RFM theo Customer ID
+        |
+        v
+log1p(R, F, M) -> StandardScaler
+        |
+        +----------------------------+
+        |                            |
+        v                            v
+Baseline quintile RFM           K-Means (k=2..10)
+        |                            |
+        +--------------+-------------+
+                       v
+KPI / so sánh / phân khúc / log / báo cáo
+                       |
+                       v
+Dashboard Streamlit + Plotly
+                       |
+                       v
+Insight và đề xuất CRM cần kiểm chứng
+\end{verbatim}
+
+\subsection*{3.2. Công nghệ}
+\addcontentsline{toc}{subsection}{3.2. Công nghệ}
+
+\begin{itemize}
+\item Python 3.10.12
+\item pandas 2.3.3
+\item scikit-learn 1.7.2
+\item Streamlit và Plotly cho dashboard
+\item pytest cho kiểm thử
+\item CSV/JSON cho các đầu ra có thể truy vết
+\end{itemize}
+
+\subsection*{3.3. Tái lập}
+\addcontentsline{toc}{subsection}{3.3. Tái lập}
+
+Từ thư mục dự án, cài \texttt{requirements.txt}, chạy \texttt{python3 -m pytest -q}, sau đó \texttt{python3 -m src.pipeline} và \texttt{streamlit run dashboard/app.py}. Pipeline mặc định đọc tệp CSV hiện có trong \texttt{Kaggle/}; có thể truyền đường dẫn khác bằng tham số \texttt{--input}.
+
+Pipeline xuất giao dịch sạch, hóa đơn hủy, bảng khách hàng/phân khúc, từ điển dữ liệu, chất lượng trước--sau, chẩn đoán k, bảng so sánh, KPI, cấu hình máy và log. CSV nguồn và CSV giao dịch xử lý được loại khỏi Git theo \texttt{.gitignore}; người nộp cần cung cấp đường dẫn nguồn hợp lệ thay vì đưa dữ liệu vào repo nếu điều kiện cấp phép chưa rõ.
+
+\subsection*{3.4. Cấu hình môi trường chạy}
+\addcontentsline{toc}{subsection}{3.4. Cấu hình môi trường chạy}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Thành phần} & \textbf{Thông tin ghi nhận} \\
+\hline
+Hệ điều hành & Linux 6.8.0-149-generic, x86\_64 \\
+\hline
+CPU & Không lấy được model CPU từ runtime; kiến trúc x86\_64 \\
+\hline
+Số luồng logic & 16 \\
+\hline
+RAM nhận diện & 15,33 GiB \\
+\hline
+Python & 3.10.12 \\
+\hline
+pandas & 2.3.3 \\
+\hline
+scikit-learn & 1.7.2 \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+Thông số là môi trường chạy pipeline tại thời điểm ghi log, không phải benchmark phần cứng độc lập. Nếu chạy trên máy khác, thời gian và kết quả có thể khác; cần lưu cấu hình thực tế tại máy demo/nộp.
+
+
+\section*{4. PHƯƠNG PHÁP PHÂN TÍCH}
+\addcontentsline{toc}{section}{4. PHƯƠNG PHÁP PHÂN TÍCH}
+
+\subsection*{4.1. Định nghĩa RFM}
+\addcontentsline{toc}{subsection}{4.1. Định nghĩa RFM}
+
+Mốc snapshot được đặt bằng ngày cuối cùng có giao dịch sạch cộng một ngày:
+
+\[
+\text{Snapshot} = \max(\text{InvoiceDate}) + 1\text{ ngày}
+\]
+
+Với dữ liệu hiện tại, snapshot là \textbf{10/12/2011}.
+
+\begin{itemize}
+\item \textbf{Recency (R):} số ngày lịch giữa snapshot và ngày mua gần nhất của khách.  
+\end{itemize}
+  \(R_i = \text{Snapshot} - \max(\text{InvoiceDate}_i)\)
+\begin{itemize}
+\item \textbf{Frequency (F):} số hóa đơn khác nhau của khách trong toàn kỳ.  
+\end{itemize}
+  \(F_i = |\{\text{Invoice}_i\}|\)
+\begin{itemize}
+\item \textbf{Monetary (M):} tổng doanh thu dòng hàng hợp lệ của khách, GBP.  
+\end{itemize}
+  \(M_i = \sum \text{Revenue}_i\)
+
+R được tính theo ngày lịch, không theo phần lẻ của 24 giờ. Trong quá trình kiểm tra, phép tính cũ lấy chênh lệch timestamp rồi cắt phần thập phân có thể khiến một giao dịch trong ngày trước snapshot bị tính thấp hơn một ngày; phép tính đã được hiệu chỉnh và test RFM đã được chạy lại trước khi chốt số liệu báo cáo.
+
+\subsection*{4.2. Biến đổi và chuẩn hóa}
+\addcontentsline{toc}{subsection}{4.2. Biến đổi và chuẩn hóa}
+
+Phân phối Frequency và Monetary thường lệch phải, và Recency có thể lệch. Đề tài áp dụng log1p cho cả ba đặc trưng:
+
+\[
+x' = \log(1+x)
+\]
+
+Sau đó dùng StandardScaler để đưa R, F, M về cùng thang đo trung bình 0 và độ lệch chuẩn 1. K-Means và các phép so sánh Silhouette/Davies--Bouldin sử dụng cùng không gian đặc trưng đã chuẩn hóa.
+
+\subsection*{4.3. Baseline quintile}
+\addcontentsline{toc}{subsection}{4.3. Baseline quintile}
+
+Với mỗi đặc trưng, tính thứ hạng khách hàng và chia thành năm nhóm phân vị. Recency có hướng điểm ngược: khách mua càng gần đây được điểm R càng cao; Frequency và Monetary càng cao thì điểm tương ứng càng cao. Quy tắc gộp thành nhãn được xây dựng từ điểm R/F/M: Champions, Loyal, At-risk, Lost, New/Promising và Regular theo điều kiện trong mã nguồn. Trên dữ liệu hiện tại có \textbf{6 nhãn baseline thực tế}.
+
+Baseline dễ giải thích và xác định lặp lại. Tuy nhiên, cách chia theo phân vị không nhất thiết phù hợp với cấu trúc tự nhiên của khách hàng; một khách có thể nằm gần ngưỡng nhưng bị chuyển nhóm bởi phân vị.
+
+\subsection*{4.4. K-Means và lựa chọn k}
+\addcontentsline{toc}{subsection}{4.4. K-Means và lựa chọn k}
+
+K-Means tối thiểu hóa tổng bình phương khoảng cách từ điểm dữ liệu đến tâm cụm:
+
+\[
+J = \sum_{j=1}^{k} \sum_{x_i \in C_j} \lVert x_i-\mu_j\rVert^2
+\]
+
+Thử nghiệm k=2..10, dùng \texttt{random\_state=42} và \texttt{n\_init=10}. Với mỗi k ghi lại:
+
+\begin{itemize}
+\item \textbf{Inertia:} tổng bình phương khoảng cách trong cụm; thường giảm khi k tăng.
+\item \textbf{Silhouette:} mức độ một điểm gần cụm của nó so với cụm kế tiếp.
+\item \textbf{Davies--Bouldin:} mức độ tương tự trung bình giữa mỗi cụm và cụm gần nhất; thường thấp hơn là tốt hơn.
+\end{itemize}
+
+Chương trình lựa chọn k có Silhouette cao nhất, dùng Davies--Bouldin làm tiêu chí phụ. Kết quả chọn k=2. Đây là quyết định theo tiêu chí hình học đã định trước; số cụm thấp làm giảm độ chi tiết nghiệp vụ. Nhóm cần nêu rõ đánh đổi này, không ép mô hình tạo 4--5 nhóm chỉ vì đó là số thường thấy.
+
+\subsection*{4.5. Định nghĩa KPI và đánh giá}
+\addcontentsline{toc}{subsection}{4.5. Định nghĩa KPI và đánh giá}
+
+\textbf{Silhouette} cho một khách:
+
+\[
+s(i)=\frac{b(i)-a(i)}{\max(a(i),b(i))}
+\]
+
+Trong đó \(a(i)\) là khoảng cách trung bình trong cùng cụm, \(b(i)\) là khoảng cách trung bình nhỏ nhất đến cụm khác. Điểm tổng thể là trung bình \(s(i)\) của mọi khách; không có đơn vị, nằm trong [-1, 1]. Điểm cao hơn gợi ý cụm tách biệt hơn theo không gian đặc trưng, không có nghĩa là phân khúc “đúng” theo nhãn kinh doanh.
+
+\textbf{Tỷ lệ khách quay lại trong toàn kỳ:}
+
+\[
+\frac{\#\{\text{khách có ít nhất 2 Invoice khác nhau}\}}
+{\#\{\text{khách có giao dịch hợp lệ}\}}\times 100\%
+\]
+
+\textbf{Tỷ lệ mua lại qua mốc thời gian:} mẫu số là khách có ít nhất một giao dịch trước 01/06/2011; tử số là khách thuộc mẫu số đồng thời có ít nhất một giao dịch từ 01/06/2011 trở đi.
+
+\textbf{ARI (Adjusted Rand Index):} so sánh mức nhất quán giữa hai lần gán cụm, điều chỉnh theo mức trùng hợp ngẫu nhiên. K-Means được chạy qua 5 seed (0--4); ARI báo cáo là trung bình so với lần seed đầu. Baseline không ngẫu nhiên nên ARI tự-so-sánh được ghi là 1,0; con số này chỉ nói baseline tái lập xác định, không phải chất lượng phân khúc cao hơn.
+
+Không có nhãn chuẩn để tính accuracy/precision/recall. Silhouette và Davies--Bouldin là các chỉ số nội tại, cần kết hợp hồ sơ RFM và đánh giá nghiệp vụ.
+
+
+
+\section*{5. KIỂM THỬ VÀ KIỂM SOÁT ĐÚNG ĐẮN}
+\addcontentsline{toc}{section}{5. KIỂM THỬ VÀ KIỂM SOÁT ĐÚNG ĐẮN}
+
+Pipeline có bốn test, đã chạy thành công (\textbf{4 passed}):
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Test} & \textbf{Kiểm tra} \\
+\hline
+Làm sạch mẫu & Dòng thiếu Customer ID bị loại; hóa đơn C được tách; Price=0 bị loại; chỉ còn giao dịch hợp lệ \\
+\hline
+RFM mẫu & Tạo dữ liệu 3 khách, tính tay Recency/Frequency/Monetary; xác nhận hai dòng cùng Invoice chỉ tính một hóa đơn \\
+\hline
+KPI mẫu & Tỷ lệ khách có ít nhất 2 Invoice và Silhouette trên dữ liệu nhỏ; đối chiếu trực tiếp \texttt{sklearn.metrics.silhouette\_score} \\
+\hline
+Nhất quán đầu ra & Nếu có đầu ra pipeline, kiểm tra KPI của dashboard khớp khách, doanh thu, tỷ lệ quay lại và Silhouette toàn tập \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+RFM test bao gồm timestamp ở các giờ khác nhau trong ngày để kiểm tra Recency theo ngày lịch. Các test mẫu giúp kiểm chứng logic cốt lõi, nhưng không thay cho kiểm tra dữ liệu nguồn, review code hoặc kiểm tra người dùng trên dashboard.
+
+
+
+\section*{6. KẾT QUẢ THỰC NGHIỆM}
+\addcontentsline{toc}{section}{6. KẾT QUẢ THỰC NGHIỆM}
+
+\subsection*{6.1. Kết quả chọn k}
+\addcontentsline{toc}{subsection}{6.1. Kết quả chọn k}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{k} & \textbf{Inertia} & \textbf{Silhouette} & \textbf{Davies--Bouldin} \\
+\hline
+2 & 8.546,85 & \textbf{0,4381} & \textbf{0,8732} \\
+\hline
+3 & 6.315,37 & 0,3482 & 1,0347 \\
+\hline
+4 & 4.878,90 & 0,3664 & 0,9291 \\
+\hline
+5 & 4.058,18 & 0,3441 & 0,9488 \\
+\hline
+6 & 3.525,32 & 0,3367 & 0,9651 \\
+\hline
+7 & 3.159,47 & 0,3056 & 0,9844 \\
+\hline
+8 & 2.875,61 & 0,2957 & 1,0006 \\
+\hline
+9 & 2.630,54 & 0,2875 & 1,0348 \\
+\hline
+10 & 2.439,29 & 0,2890 & 1,0165 \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+Inertia giảm khi số cụm tăng, như kỳ vọng. Silhouette cao nhất tại k=2. k=4 có Silhouette 0,3664, thấp hơn k=2 nhưng tạo thêm sắc thái; nếu mục tiêu nghiệp vụ cần phân biệt nhóm trung gian, nhóm có thể chạy thử k=4 và đánh giá thêm tính ổn định/khả năng hành động, song không nên thay số liệu k=2 trong kết quả chính khi quy tắc chọn k vẫn là Silhouette cao nhất.
+
+\subsection*{6.2. Hồ sơ hai cụm K-Means}
+\addcontentsline{toc}{subsection}{6.2. Hồ sơ hai cụm K-Means}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Nhãn diễn giải} & \textbf{Số khách} & \textbf{Recency trung bình (ngày)} & \textbf{Frequency trung bình (hóa đơn)} & \textbf{Monetary trung bình (GBP)} \\
+\hline
+At-risk/Lost (C0) & 3.517 & 299,67 & 2,08 & 596,60 \\
+\hline
+Champions (C1) & 2.335 & 51,72 & 12,54 & 6.411,38 \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+Nhóm At-risk/Lost có lần mua gần nhất xa hơn, tần suất và chi tiêu thấp hơn nhóm Champions trong dữ liệu quan sát. “At-risk/Lost” là nhãn mô tả tương đối dựa trên RFM; không có dữ liệu nhãn rời bỏ và không thể kết luận từng khách sẽ không quay lại. Tương tự, “Champions” không phải nhãn do doanh nghiệp cung cấp mà là tên diễn giải cụm được tạo sau khi xem RFM trung bình.
+
+\subsection*{6.3. So sánh baseline và K-Means}
+\addcontentsline{toc}{subsection}{6.3. So sánh baseline và K-Means}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Phương pháp} & \textbf{Số nhóm} & \textbf{Silhouette} & \textbf{Davies--Bouldin} & \textbf{ARI ổn định} & \textbf{Thời gian trung bình / lần (giây)} & \textbf{Diễn giải} \\
+\hline
+Baseline quintile RFM & 6 & 0,1568 & 1,4312 & 1,0000* & 0,00716 & Quy tắc rõ, dễ giải thích; chia theo phân vị \\
+\hline
+K-Means, k=2 & 2 & \textbf{0,4381} & \textbf{0,8732} & 0,9969 & 0,01985 & Phân nhóm theo cấu trúc khoảng cách, cần diễn giải tâm cụm \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+\texttt{*} ARI baseline bằng 1 do baseline xác định, không ngẫu nhiên; không thể so sánh trực tiếp như một điểm “ổn định hơn” có ý nghĩa phân cụm.
+
+Thời gian trong bảng là trung bình của 5 lần chạy phần tạo nhãn, không phải tổng thời gian pipeline. Toàn pipeline lần chạy cuối mất khoảng 12,19 giây trên môi trường đã ghi, gồm đọc CSV, làm sạch, tính RFM, khảo sát k, so sánh và ghi kết quả. Kết quả thời gian có thể biến động theo máy, tải hệ thống và cache.
+
+K-Means có Silhouette cao hơn khoảng 0,2812 điểm và Davies--Bouldin thấp hơn khoảng 0,5580 điểm so với baseline trên cùng không gian đặc trưng. Đổi lại, thời gian tạo nhãn trung bình cao hơn và kết quả ít trực quan hơn quy tắc ngưỡng. K-Means tối ưu khoảng cách Euclid và có thể nhạy với ngoại lệ, lựa chọn biến đổi, thang đo và giả định cụm tương đối lồi/hình cầu. Baseline dễ truyền đạt nhưng việc chia quintile riêng lẻ không đảm bảo nhóm cuối cùng tách biệt về mặt hình học.
+
+Các chỉ số nội tại chỉ hỗ trợ so sánh cấu trúc; không chứng minh K-Means sẽ tạo kết quả kinh doanh tốt hơn. Cần đánh giá khả năng hành động, chi phí triển khai và hiệu quả chiến dịch thực tế.
+
+\subsection*{6.4. KPI toàn tập}
+\addcontentsline{toc}{subsection}{6.4. KPI toàn tập}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{KPI} & \textbf{Giá trị thực tế} & \textbf{Đơn vị / phạm vi} \\
+\hline
+Silhouette K-Means & 0,4381 & Không đơn vị; 5.852 khách, k=2, không gian RFM chuẩn hóa \\
+\hline
+Silhouette baseline & 0,1568 & Không đơn vị; cùng khách và không gian chuẩn hóa, nhãn baseline \\
+\hline
+Tỷ lệ khách có \ensuremath{\geq}2 hóa đơn khác nhau & 72,35\% & 5.852 khách trong toàn kỳ giao dịch sạch \\
+\hline
+Tỷ lệ mua lại qua 01/06/2011 & 52,91\% & Khách mua trước mốc; tỷ lệ có mua từ mốc trở đi \\
+\hline
+Doanh thu dòng hàng hợp lệ & \pounds{}17.068.808,72 & Tổng Quantity \ensuremath{\times} Price, toàn bộ tập giao dịch sạch \\
+\hline
+Snapshot & 10/12/2011 & Ngày cuối dữ liệu sạch + 1 ngày \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+Silhouette kiểm tra toàn tập bằng cùng hàm của scikit-learn; test KPI trên mẫu so khớp \texttt{silhouette\_score}. Tỷ lệ quay lại đếm Invoice khác nhau, không phải số dòng sản phẩm. Doanh thu là tổng bán hàng dòng sản phẩm, không trừ chi phí, thuế, vận chuyển hay hoàn trả ngoài những gì đã loại khỏi tập.
+
+\subsection*{6.5. Insight chính}
+\addcontentsline{toc}{subsection}{6.5. Insight chính}
+
+\begin{enumerate}
+\item \textbf{Tập trung doanh thu:} Champions là 39,90\% khách nhưng chiếm 87,71\% doanh thu sạch. Monetary trung bình của cụm là khoảng \pounds{}6.411,38/khách.
+\item \textbf{Nhóm quy mô lớn, giá trị quan sát thấp hơn:} At-risk/Lost chiếm 60,10\% khách và 12,29\% doanh thu. Recency trung bình 299,67 ngày, Frequency 2,08 hóa đơn và Monetary khoảng \pounds{}596,60/khách.
+\item \textbf{Mua lại qua thời gian:} 72,35\% khách có ít nhất hai hóa đơn trong toàn kỳ; 52,91\% khách đã mua trước 01/06/2011 tiếp tục xuất hiện trong tập giao dịch từ mốc đó trở đi.
+\end{enumerate}
+
+Các kết quả là thống kê lịch sử gộp trên dữ liệu 2009--2011. Chúng không chứng minh nguyên nhân, không phản ánh tình trạng hiện tại và không cho biết khách có nhận chiến dịch hay không.
+
+
+\section*{7. DASHBOARD VÀ KIỂM TRA TÍNH NHẤT QUÁN}
+\addcontentsline{toc}{section}{7. DASHBOARD VÀ KIỂM TRA TÍNH NHẤT QUÁN}
+
+Dashboard được xây dựng bằng Streamlit và Plotly. Các thành phần chính:
+
+\begin{itemize}
+\item Bộ lọc quốc gia.
+\item Khoảng ngày mua gần nhất.
+\item Phương pháp Baseline hoặc K-Means.
+\item Lọc phân khúc theo phương pháp đã chọn.
+\item Thẻ KPI: số khách, doanh thu GBP, Silhouette, tỷ lệ khách quay lại.
+\item Biểu đồ cột số khách và doanh thu theo phân khúc.
+\item Scatter Frequency--Monetary, có thể xem thông tin Recency/quốc gia.
+\item Heatmap Recency--Frequency.
+\item Đường chẩn đoán inertia và Silhouette theo k.
+\item Bảng so sánh phương pháp và bảng RFM trung bình.
+\end{itemize}
+
+KPI được tính lại trên tập khách sau lọc. Khi lọc chỉ còn một cụm hoặc số khách không đủ để tính Silhouette, dashboard hiển thị N/A thay vì điểm số không hợp lệ. Test kiểm tra sự nhất quán giữa KPI toàn tập dashboard và đầu ra pipeline đã chạy thành công.
+
+\textbf{Hình cần chèn trước khi nộp:}
+
+\begin{enumerate}
+\item Hình 1 -- Dashboard mặc định, tất cả quốc gia và hai phân khúc.
+\item Hình 2 -- Dashboard lọc Champions hoặc At-risk/Lost.
+\item Hình 3 -- Dashboard khi chọn Baseline.
+\item Hình 4 -- Terminal hiển thị KPI pipeline và/hoặc JSON log.
+\item Hình 5 -- Biểu đồ chọn k hoặc bảng so sánh.
+\end{enumerate}
+
+Ảnh chụp cần được tạo từ phiên chạy thực tế và ghi chú điều kiện lọc. Không chèn ảnh minh họa giả lập thay cho minh chứng chạy.
+
+
+\section*{8. ĐỀ XUẤT KINH DOANH}
+\addcontentsline{toc}{section}{8. ĐỀ XUẤT KINH DOANH}
+
+\subsection*{8.1. Chiến dịch theo phân khúc}
+\addcontentsline{toc}{subsection}{8.1. Chiến dịch theo phân khúc}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Phân khúc quan sát} & \textbf{Mục tiêu} & \textbf{Hành động đề xuất để thử nghiệm} & \textbf{KPI theo dõi} \\
+\hline
+Champions & Duy trì quan hệ và giảm nguy cơ mất khách có giá trị cao & Early access, chăm sóc ưu tiên, ưu đãi có điều kiện; tránh giảm giá đại trà nếu không cần thiết & Tỷ lệ mua lại, doanh thu/khách, biên lợi nhuận, tần suất \\
+\hline
+Loyal / Potential & Tăng tần suất hoặc giá trị đơn & Gợi ý mua kèm, ưu đãi theo ngưỡng, chương trình thành viên & AOV, số hóa đơn/khách, tỷ lệ chuyển đổi \\
+\hline
+At-risk & Kích hoạt lại khách mua thưa hoặc đã lâu không mua & Email nhắc mua, ưu đãi cá nhân hóa, thử nghiệm nhóm thông điệp & Tỷ lệ phản hồi, tỷ lệ mua lại, doanh thu tăng thêm \\
+\hline
+Lost & Kiểm tra khả năng tái kích hoạt với chi phí thấp & Kênh chi phí thấp trước; hạn chế đầu tư voucher giá trị cao nếu không có tín hiệu phản hồi & Chi phí/khách quay lại, doanh thu tăng thêm, ROI thực \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+Trong phân cụm hiện tại, K-Means chỉ tạo hai nhóm; vì vậy bảng chiến dịch nhiều hơn hai hàng là khung gợi ý nếu baseline, k khác hoặc quy tắc CRM bổ sung tách nhóm. Không được gán khách vào Loyal/Potential chỉ từ output K-Means k=2 hiện tại.
+
+\subsection*{8.2. Minh họa độ nhạy chi phí}
+\addcontentsline{toc}{subsection}{8.2. Minh họa độ nhạy chi phí}
+
+Để có ví dụ định lượng, pipeline giả định chi phí tiếp cận là \pounds{}1,50/khách và tỷ lệ phản hồi là 1\%, 3\% hoặc 5\%. Giá trị đơn trung bình được ước tính bằng doanh thu chia tổng số hóa đơn duy nhất. Doanh thu kỳ vọng = số khách \ensuremath{\times} tỷ lệ phản hồi \ensuremath{\times} giá trị đơn trung bình. ROI minh họa = (doanh thu kỳ vọng \ensuremath{-} chi phí chiến dịch) / chi phí chiến dịch.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Phân khúc} & \textbf{Tỷ lệ phản hồi giả định} & \textbf{Chi phí ước tính} & \textbf{Doanh thu gộp kỳ vọng} & \textbf{ROI minh họa} \\
+\hline
+At-risk/Lost (3.517 khách) & 1\% & \pounds{}5.275,50 & \pounds{}10.071,61 & 90,91\% \\
+\hline
+At-risk/Lost (3.517 khách) & 3\% & \pounds{}5.275,50 & \pounds{}30.214,84 & 472,74\% \\
+\hline
+At-risk/Lost (3.517 khách) & 5\% & \pounds{}5.275,50 & \pounds{}50.358,06 & 854,56\% \\
+\hline
+Champions (2.335 khách) & 1\% & \pounds{}3.502,50 & \pounds{}11.939,85 & 240,90\% \\
+\hline
+Champions (2.335 khách) & 3\% & \pounds{}3.502,50 & \pounds{}35.819,56 & 922,69\% \\
+\hline
+Champions (2.335 khách) & 5\% & \pounds{}3.502,50 & \pounds{}59.699,26 & 1.604,48\% \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+\textbf{Cảnh báo diễn giải:} Đây không phải ROI tài chính thực tế. Tỷ lệ phản hồi và chi phí/khách là giả định; doanh thu là doanh thu gộp, không phải lợi nhuận tăng thêm; mô hình đơn giản chưa trừ giá vốn, phí gửi, voucher, hoàn trả, thuế hoặc doanh thu khách vốn sẽ mua dù không nhận chiến dịch. Con số cao trong bảng không đủ cơ sở để phê duyệt ngân sách. Bảng chỉ cho thấy kết quả phụ thuộc mạnh vào giả định phản hồi; cần thay bằng chi phí và biên lợi nhuận thật, sau đó chạy thử nghiệm có đối chứng.
+
+\subsection*{8.3. Thiết kế kiểm chứng}
+\addcontentsline{toc}{subsection}{8.3. Thiết kế kiểm chứng}
+
+\begin{enumerate}
+\item Chọn nhóm khách đủ điều kiện và phân ngẫu nhiên thành nhóm nhận chiến dịch và nhóm đối chứng.
+\item Định nghĩa trước cửa sổ đo lường, tiêu chí mua lại, doanh thu tăng thêm, chi phí tiếp cận và biên lợi nhuận.
+\item So sánh tỷ lệ mua lại và lợi nhuận tăng thêm giữa hai nhóm; không quy toàn bộ doanh thu người nhận chiến dịch cho chiến dịch.
+\item Theo dõi kết quả theo phân khúc, kênh và nội dung; dừng hoặc điều chỉnh nếu chi phí vượt ngưỡng.
+\item Cập nhật RFM định kỳ hàng tháng/quý và theo dõi tỷ lệ khách chuyển nhóm.
+\end{enumerate}
+
+
+\section*{9. HẠN CHẾ, RỦI RO VÀ HƯỚNG PHÁT TRIỂN}
+\addcontentsline{toc}{section}{9. HẠN CHẾ, RỦI RO VÀ HƯỚNG PHÁT TRIỂN}
+
+\subsection*{9.1. Giới hạn dữ liệu}
+\addcontentsline{toc}{subsection}{9.1. Giới hạn dữ liệu}
+
+\begin{itemize}
+\item Dữ liệu thuộc giai đoạn 2009--2011, không đại diện hành vi mua hiện tại.
+\item Customer ID thiếu ở 22,77\% dòng; nhóm khách không có mã có thể khác có hệ thống so với khách được định danh.
+\item Một khách hàng trong dữ liệu có thể là doanh nghiệp; không nên diễn giải mọi mã khách là một cá nhân.
+\item Không có chi phí marketing, giá vốn, margin và dữ liệu tiếp xúc chiến dịch; ROI thật không tính được.
+\item Không có ground truth phân khúc; không tính accuracy hoặc kết luận mô hình phân cụm “đúng” theo nhãn chuẩn.
+\item Phân tích gộp theo toàn kỳ có thể che giấu biến động mùa vụ hoặc thay đổi hành vi theo thời gian.
+\item Quy tắc stock code dựa vào danh sách mã dịch vụ/fee trong mã nguồn và có thể cần mở rộng.
+\end{itemize}
+
+\subsection*{9.2. Giới hạn phương pháp}
+\addcontentsline{toc}{subsection}{9.2. Giới hạn phương pháp}
+
+\begin{itemize}
+\item K-Means ưu tiên cụm theo khoảng cách Euclid; cụm có dạng không lồi, mật độ khác nhau hoặc kích thước rất lệch có thể không được mô tả tốt.
+\item k=2 có chỉ số nội tại tốt nhất trong dải đã thử nhưng làm giảm độ chi tiết kinh doanh. k=4 có Silhouette thấp hơn; cần cân bằng chất lượng hình học với khả năng hành động.
+\item Log1p giảm lệch nhưng không loại bỏ hoàn toàn ảnh hưởng của giá trị cực lớn.
+\item Baseline quintile và K-Means tạo số nhóm khác nhau (6 so với 2), làm khác biệt Silhouette chịu ảnh hưởng một phần từ số cụm và quy tắc nhãn.
+\item ARI baseline = 1 là do tính xác định; không phải bằng chứng baseline tốt hơn về tính ổn định thực tế.
+\item Thời gian benchmark trong bảng chỉ đo thao tác tạo nhãn, không so sánh tổng thời gian phát triển/tiền xử lý.
+\item Silhouette của lựa chọn lọc dashboard được tính lại theo tập con; nếu muốn so sánh trực tiếp giữa các bộ lọc, cần thống nhất scaler và quy tắc tính.
+\end{itemize}
+
+\subsection*{9.3. Hướng phát triển}
+\addcontentsline{toc}{subsection}{9.3. Hướng phát triển}
+
+\begin{enumerate}
+\item Thu thập dữ liệu mới hơn, bổ sung lợi nhuận, chi phí khuyến mãi, lịch sử gửi/nhận thông điệp và phản hồi chiến dịch.
+\item Theo dõi RFM theo nhiều snapshot để kiểm tra độ ổn định của phân khúc theo thời gian.
+\item So sánh thêm k=3/4, Hierarchical hoặc Gaussian Mixture, giữ nguyên tập khách và không gian đặc trưng.
+\item Định nghĩa chỉ số nghiệp vụ có thể kiểm chứng bằng A/B test, thay vì dùng Silhouette làm tiêu chuẩn duy nhất.
+\item Thực hiện phân tích nhạy cảm với cách xử lý trả hàng, mã dịch vụ và khách có giá trị cực lớn.
+\item Nếu cần tuyên bố khả năng mở rộng Big Data, thiết kế benchmark có kiểm soát trên Spark/Parquet hoặc hệ thống phân tán, tăng tải theo quy mô và báo cáo tài nguyên/độ trễ.
+\item Bổ sung kiểm tra dashboard bằng ảnh và test tự động cho các tổ hợp bộ lọc thường dùng.
+\end{enumerate}
+
+
+\section*{10. KẾT LUẬN}
+\addcontentsline{toc}{section}{10. KẾT LUẬN}
+
+Đề tài đã xây dựng được pipeline có thể chạy lại trên Online Retail II, bao gồm kiểm tra dữ liệu, làm sạch, tách hóa đơn hủy, tính RFM theo ngày lịch, chuẩn hóa, baseline quintile, K-Means, đánh giá chỉ số, lưu log và dashboard. Trên 5.852 khách hàng còn lại, K-Means k=2 có Silhouette 0,4381 và Davies--Bouldin 0,8732; baseline sáu nhóm lần lượt đạt 0,1568 và 1,4312. Độ ổn định K-Means qua nhiều seed đạt ARI trung bình 0,9969. Bốn kiểm thử tự động đã chạy thành công, gồm test làm sạch, RFM, KPI và đối chiếu đầu ra.
+
+Tỷ lệ khách có ít nhất hai hóa đơn là 72,35\%; tỷ lệ mua lại qua mốc 01/06/2011 là 52,91\%. Champions chiếm 39,90\% khách và 87,71\% doanh thu; At-risk/Lost chiếm 60,10\% khách và 12,29\% doanh thu. Những kết quả này trả lời các câu hỏi mô tả của đề tài nhưng không chứng minh quan hệ nhân quả hoặc hiệu quả của một chiến dịch.
+
+Kết luận chính là dữ liệu RFM có thể hỗ trợ ưu tiên phân tích và thiết kế thử nghiệm CRM. Tuy nhiên, do dữ liệu cũ, thiếu Customer ID, không có nhãn chuẩn, không có chi phí/lợi nhuận thật và K-Means chỉ tạo hai cụm, doanh nghiệp cần xem phân khúc là tín hiệu tham khảo. Trước khi triển khai, cần cập nhật dữ liệu, xác thực nhãn với người dùng nghiệp vụ và đánh giá chiến dịch bằng A/B test có nhóm đối chứng.
+
+
+\section*{TÀI LIỆU THAM KHẢO}
+\addcontentsline{toc}{section}{TÀI LIỆU THAM KHẢO}
+
+\begin{enumerate}
+\item UCI Machine Learning Repository. \textit{Online Retail II}. \url{https://archive.ics.uci.edu/dataset/502/online+retail+ii}. Truy cập: [điền ngày truy cập].
+\item Kaggle. \textit{Online Retail II}. \url{https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci}. Truy cập: [điền ngày truy cập].
+\item scikit-learn Developers. \textit{Clustering performance evaluation}. \url{https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation}.
+\item scikit-learn Developers. \textit{KMeans}. \url{https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html}.
+\item Tài liệu giao đề CO4033, \textit{Bộ 17 đề tài bài tập lớn -- Phân tích dữ liệu lớn và Trí tuệ kinh doanh}, đề tài 04 và yêu cầu chung.
+\item Mã nguồn và kết quả thực nghiệm của nhóm trong thư mục dự án: \texttt{src/}, \texttt{tests/}, \texttt{dashboard/}, \texttt{reports/}.
+\end{enumerate}
+
+
+\section*{PHỤ LỤC A. ĐẦU RA CÓ THỂ ĐỐI CHIẾU}
+\addcontentsline{toc}{section}{PHỤ LỤC A. ĐẦU RA CÓ THỂ ĐỐI CHIẾU}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+\hline
+\textbf{Tệp} & \textbf{Nội dung} \\
+\hline
+\texttt{reports/dataset\_profile.json} & Kích thước và phạm vi ngày dữ liệu \\
+\hline
+\texttt{reports/data\_dictionary.csv} & Kiểu trường, ý nghĩa và tỷ lệ thiếu \\
+\hline
+\texttt{reports/quality\_before\_after.csv} & Dòng, khách, hóa đơn, thiếu/trùng theo từng bước \\
+\hline
+\texttt{reports/cluster\_diagnostics.csv} & Inertia, Silhouette, Davies--Bouldin theo k \\
+\hline
+\texttt{reports/comparison.csv} & So sánh baseline và K-Means \\
+\hline
+\texttt{reports/kpi\_summary.json} & KPI toàn tập \\
+\hline
+\texttt{reports/kmeans\_cluster\_profiles.csv} & RFM trung bình theo cụm \\
+\hline
+\texttt{reports/segment\_insights.csv} & Quy mô và doanh thu theo cụm \\
+\hline
+\texttt{reports/campaign\_sensitivity.csv} & Ước tính theo giả định phản hồi \\
+\hline
+\texttt{reports/hardware.json} & Cấu hình môi trường chạy \\
+\hline
+\texttt{reports/logs/} & Số dòng và thời gian từng giai đoạn \\
+\hline
+\texttt{data/processed/customer\_segments.csv} & RFM và nhãn từng khách \\
+\hline
+\texttt{data/processed/clean\_transactions.csv} & Giao dịch sạch \\
+\hline
+\texttt{data/processed/cancellations.csv} & Hóa đơn hủy được tách riêng \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+\section*{PHỤ LỤC B. KHAI BÁO CÔNG CỤ}
+\addcontentsline{toc}{section}{PHỤ LỤC B. KHAI BÁO CÔNG CỤ}
+
+\begin{quote}
+Nhóm có sử dụng trợ lý AI để hỗ trợ rà soát yêu cầu, gợi ý cấu trúc báo cáo và diễn đạt bản nháp. Nhóm đã tự kiểm tra mã nguồn, chạy pipeline và kiểm thử, đối chiếu các số liệu với tệp đầu ra, đồng thời chịu trách nhiệm về nội dung cuối cùng. Các phần nội dung, phân tích và nhận xét được nhóm xác minh và hiệu chỉnh trước khi nộp.
+\end{quote}
+
+\end{document}

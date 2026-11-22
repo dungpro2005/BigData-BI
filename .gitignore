@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+Kaggle/online_retail_II.csv
+data/processed/*.csv

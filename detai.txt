@@ -1,0 +1,49 @@
+ĐỀ TÀI 04. Phân khúc khách hàng theo hành vi mua sắm
+Lĩnh vực: CRM | Chuẩn đầu ra: L.O.1.1, L.O.1.2, L.O.2.1, L.O.2.2, L.O.3.1, L.O.3.2
+1. Mục tiêu và yêu cầu bài toán
+Xây dựng một giải pháp phân tích dữ liệu hỗ trợ ra quyết định trong lĩnh vực crm. Đầu vào: khách hàng ẩn danh, đơn hàng, tần suất và giá trị mua. Nhóm phải phát biểu tối thiểu 2 câu hỏi phân tích có thể kiểm chứng và nêu người dùng cuối của dashboard.
+2. Hướng dẫn thực hiện
+Bước 1. Khảo sát và mô tả dữ liệu: Khách hàng ẩn danh, đơn hàng, tần suất và giá trị mua. Ghi nguồn, phạm vi thời gian, số dòng, các trường, kiểu dữ liệu và giới hạn sử dụng.
+Bước 2. Xây dựng quy trình làm sạch: xử lý thiếu/trùng, kiểu thời gian, ngoại lệ; lưu bảng kiểm tra chất lượng trước và sau.
+Bước 3. Triển khai pipeline: Tạo RFM, chuẩn hóa, K-Means, BI phân khúc. Cung cấp sơ đồ luồng, mã nguồn chạy lại và kiểm thử ít nhất 3 trường hợp.
+Bước 4. Tạo baseline và phương án so sánh: Phân khúc theo ngưỡng RFM so với K-Means. Giữ cùng tập dữ liệu, ghi cấu hình phần cứng và cách đo.
+Bước 5. Xây dựng dashboard có bộ lọc và các KPI: Silhouette; tỷ lệ khách hàng quay lại; RFM. Viết tối thiểu 3 nhận xét dựa trên số liệu.
+Bước 6. Đề xuất quyết định: Chiến dịch giữ chân theo phân khúc. Phân tích chi phí, rủi ro, hạn chế và điều kiện áp dụng.
+3. Kết quả cần đạt và cách kiểm chứng
+    • KPI bắt buộc: Silhouette; tỷ lệ khách hàng quay lại; RFM. Phải ghi công thức, đơn vị, phạm vi dữ liệu và giá trị đo thực tế (không đặt trước kết quả).
+    • Có bảng đối chiếu ít nhất 2 cách làm, bao gồm chất lượng/độ chính xác (nếu có), thời gian chạy và nhận xét nguyên nhân chênh lệch.
+    • Có minh chứng: ảnh dashboard, ảnh/log chạy pipeline, mẫu đầu ra, bảng dữ liệu trước–sau xử lý và liên kết repo.
+    • Kết luận đạt khi pipeline chạy lại được, KPI tính đúng trên mẫu kiểm tra, dashboard nhất quán với dữ liệu, và có đề xuất kinh doanh gắn với kết quả.
+4. Gợi ý đánh giá riêng cho đề tài
+Kiểm tra trọng tâm: (a) tính hợp lệ của dữ liệu crm; (b) tính đúng của chỉ số silhouette; tỷ lệ khách hàng quay lại; rfm; (c) so sánh công bằng giữa các phương án; (d) khả năng biến phân tích thành hành động: chiến dịch giữ chân theo phân khúc. Áp dụng rubric chung 100 điểm ở Mục II; giảng viên có thể yêu cầu demo chạy lại và đặt câu hỏi cá nhân.
+
+
+II. Yêu cầu chung và cách chấm
+    • Nhóm đề xuất: 3–5 sinh viên; chọn một đề tài, xác định câu hỏi kinh doanh, đối tượng sử dụng và ít nhất 3 KPI.
+    • Dữ liệu: dùng nguồn công khai có giấy phép phù hợp hoặc dữ liệu mô phỏng ghi rõ; cung cấp URL nguồn, mô tả schema, số bản ghi, mức thiếu dữ liệu và cách xử lý. Không đưa dữ liệu cá nhân nhạy cảm vào kho mã nguồn.
+    • Pipeline tối thiểu: thu thập/nhập dữ liệu → làm sạch → lưu trữ → xử lý/phân tích → trực quan hóa BI → đề xuất quyết định; có thể dùng Python, PySpark/Spark SQL, Hadoop/HDFS, MongoDB, PostgreSQL, Power BI hoặc Streamlit theo mức phù hợp.
+    • So sánh bắt buộc: có baseline và ít nhất một phương án cải tiến hoặc hai cấu hình xử lý; đo thời gian chạy, chất lượng phân tích và giới hạn hệ thống. Không gọi dữ liệu nhỏ là “Big Data” nếu chưa chứng minh quy mô; có thể mô phỏng tăng tải và báo cáo trung thực.
+    • Sản phẩm nộp: mã nguồn + README chạy lại, dữ liệu mẫu hoặc script tạo dữ liệu, báo cáo PDF/DOCX, dashboard và slide/demo. Báo cáo có hình kiến trúc, kết quả thực nghiệm, thảo luận sai số và phân công đóng góp.
+    • Liêm chính học thuật: ghi rõ công cụ AI và cách sử dụng; không nộp sản phẩm được AI tạo toàn bộ hoặc phần lớn; tuân thủ yêu cầu trong đề cương.
+Rubric đề xuất (100 điểm cho mỗi đề tài)
+Tiêu chí
+Điểm
+Minh chứng cần kiểm tra
+Bài toán và KPI
+15
+Bối cảnh, câu hỏi, KPI định nghĩa rõ
+Dữ liệu và quản lý dữ liệu
+15
+Nguồn, schema, chất lượng, truy vết
+Pipeline và tính đúng
+20
+Code chạy được, kiểm thử, xử lý lỗi
+Phân tích và so sánh
+20
+Baseline, chỉ số, bảng so sánh
+BI và giá trị quyết định
+15
+Dashboard, insight, hành động
+Báo cáo, demo, tái lập
+15
+README, báo cáo, demo, đóng góp

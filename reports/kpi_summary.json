@@ -1,0 +1,10 @@
+{
+  "snapshot_date": "2011-12-10",
+  "customer_count": 5852,
+  "revenue_gbp": 17068808.72,
+  "repeat_customer_rate_pct": 72.35133287764867,
+  "temporal_repurchase_rate_pct": 52.913610431947845,
+  "selected_k": 2,
+  "silhouette_kmeans": 0.43808602405940206,
+  "silhouette_baseline": 0.15684900476499444
+}

@@ -1,0 +1,3 @@
+kmeans_segment,customers,revenue_gbp,frequency,repeat_customers,customer_share_pct,revenue_share_pct,mean_order_value_gbp
+At-risk/Lost (C0),3517,2098228.69,7327,1901,60.09911141490088,12.292765853901958,286.3694131295209
+Champions (C1),2335,14970580.03,29277,2333,39.90088858509911,87.70723414609805,511.3426932404276

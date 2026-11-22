@@ -1,0 +1,3 @@
+method,clusters,silhouette,davies_bouldin,stability_ari,mean_runtime_seconds_5_runs,interpretability
+Baseline quintile RFM,6,0.15684900476499444,1.431214324509342,1.0,0.007157274199926178,Rule-based quintile segments; direct to explain
+K-Means k=2,2,0.43808602405940206,0.873242857942225,0.9969231185523112,0.019850991200019052,Data-driven clusters; profile and label using observed RFM

@@ -1,0 +1,8 @@
+stage,rows,customers,invoices,missing_pct,duplicate_pct,rows_removed_from_active_set
+before,1067371,5942,53628,2.897176801693132,3.2167821685243467,0
+after_missing_customer_id,824364,5942,44876,0.0,3.212051957630367,243007
+after_duplicates,797885,5942,44876,0.0,0.0,26479
+after_invalid_invoice_date,797885,5942,44876,0.0,0.0,0
+after_cancelled_invoices,779495,5881,36975,0.0,0.0,18390
+after_nonpositive_quantity_or_price,779425,5878,36969,0.0,0.0,70
+after_non_product_stockcodes,776589,5852,36604,0.0,0.0,2836

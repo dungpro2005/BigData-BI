@@ -1,0 +1,44 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {section}{1. GIỚI THIỆU}{3}{section*.4}%
+\contentsline {subsection}{1.1. Bối cảnh}{3}{section*.5}%
+\contentsline {subsection}{1.2. Vấn đề cần giải quyết}{3}{section*.6}%
+\contentsline {subsection}{1.3. Mục tiêu}{3}{section*.7}%
+\contentsline {subsection}{1.4. Câu hỏi phân tích}{3}{section*.8}%
+\contentsline {subsection}{1.5. Người dùng dự kiến}{3}{section*.9}%
+\contentsline {subsection}{1.6. Phạm vi}{4}{section*.10}%
+\contentsline {section}{2. DỮ LIỆU VÀ QUẢN LÝ DỮ LIỆU}{4}{section*.11}%
+\contentsline {subsection}{2.1. Nguồn dữ liệu}{4}{section*.12}%
+\contentsline {subsection}{2.2. Quy mô và phạm vi}{4}{section*.13}%
+\contentsline {subsection}{2.3. Từ điển dữ liệu}{4}{section*.15}%
+\contentsline {subsection}{2.4. Chất lượng và làm sạch}{6}{section*.17}%
+\contentsline {section}{3. KIẾN TRÚC VÀ QUY TRÌNH THỰC HIỆN}{6}{section*.19}%
+\contentsline {subsection}{3.1. Kiến trúc pipeline}{6}{section*.20}%
+\contentsline {subsection}{3.2. Công nghệ}{7}{section*.21}%
+\contentsline {subsection}{3.3. Tái lập}{7}{section*.22}%
+\contentsline {subsection}{3.4. Cấu hình môi trường chạy}{7}{section*.23}%
+\contentsline {section}{4. PHƯƠNG PHÁP PHÂN TÍCH}{8}{section*.25}%
+\contentsline {subsection}{4.1. Định nghĩa RFM}{8}{section*.26}%
+\contentsline {subsection}{4.2. Biến đổi và chuẩn hóa}{8}{section*.27}%
+\contentsline {subsection}{4.3. Baseline quintile}{8}{section*.28}%
+\contentsline {subsection}{4.4. K-Means và lựa chọn k}{8}{section*.29}%
+\contentsline {subsection}{4.5. Định nghĩa KPI và đánh giá}{9}{section*.30}%
+\contentsline {section}{5. KIỂM THỬ VÀ KIỂM SOÁT ĐÚNG ĐẮN}{9}{section*.31}%
+\contentsline {section}{6. KẾT QUẢ THỰC NGHIỆM}{10}{section*.33}%
+\contentsline {subsection}{6.1. Kết quả chọn k}{10}{section*.34}%
+\contentsline {subsection}{6.2. Hồ sơ hai cụm K-Means}{10}{section*.36}%
+\contentsline {subsection}{6.3. So sánh baseline và K-Means}{10}{section*.38}%
+\contentsline {subsection}{6.4. KPI toàn tập}{11}{section*.40}%
+\contentsline {subsection}{6.5. Insight chính}{11}{section*.42}%
+\contentsline {section}{7. DASHBOARD VÀ KIỂM TRA TÍNH NHẤT QUÁN}{12}{section*.43}%
+\contentsline {section}{8. ĐỀ XUẤT KINH DOANH}{12}{section*.44}%
+\contentsline {subsection}{8.1. Chiến dịch theo phân khúc}{12}{section*.45}%
+\contentsline {subsection}{8.2. Minh họa độ nhạy chi phí}{12}{section*.47}%
+\contentsline {subsection}{8.3. Thiết kế kiểm chứng}{14}{section*.49}%
+\contentsline {section}{9. HẠN CHẾ, RỦI RO VÀ HƯỚNG PHÁT TRIỂN}{14}{section*.50}%
+\contentsline {subsection}{9.1. Giới hạn dữ liệu}{14}{section*.51}%
+\contentsline {subsection}{9.2. Giới hạn phương pháp}{14}{section*.52}%
+\contentsline {subsection}{9.3. Hướng phát triển}{15}{section*.53}%
+\contentsline {section}{10. KẾT LUẬN}{15}{section*.54}%
+\contentsline {section}{TÀI LIỆU THAM KHẢO}{15}{section*.55}%
+\contentsline {section}{PHỤ LỤC A. ĐẦU RA CÓ THỂ ĐỐI CHIẾU}{16}{section*.56}%
+\contentsline {section}{PHỤ LỤC B. KHAI BÁO CÔNG CỤ}{16}{section*.58}%

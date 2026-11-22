@@ -1,0 +1,20 @@
+{
+  "started_at": "2026-11-15T18:44:11.251234",
+  "input": "/home/dung/Documents/BigData & BI/Kaggle/online_retail_II.csv",
+  "row_counts": {
+    "raw": 1067371,
+    "clean": 776589,
+    "cancelled_separated": 18390,
+    "customers": 5852
+  },
+  "timings_seconds": {
+    "load_seconds": 0.5789390909999383,
+    "clean_seconds": 3.0940691929999957,
+    "rfm_and_scale_seconds": 0.08633456500001557,
+    "cluster_and_evaluate_seconds": 3.5910601259997748,
+    "method_comparison_seconds": 1.0250236269998823,
+    "total_seconds": 12.19172865199971
+  },
+  "snapshot_date": "2011-12-10",
+  "selected_k": 2
+}
